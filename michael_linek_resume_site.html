@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Linek — Technology Transformation Executive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#0C1826;
+    --navy-900:#122844;
+    --navy-800:#1B3A5C;
+    --steel-500:#5C7A9C;
+    --steel-300:#9AB0C6;
+    --paper-50:#EEF0F2;
+    --paper-100:#E3E7EB;
+    --ink-900:#101820;
+    --ink-600:#3E4C58;
+    --amber-500:#C98A3E;
+    --amber-600:#B3752E;
+    --line:#D4D9DE;
+    --line-dark:#2A4262;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper-50);
+    color:var(--ink-900);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--navy-950);
+    color:var(--paper-50);
+    padding:72px 0 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      repeating-linear-gradient(90deg, rgba(154,176,198,0.06) 0px, rgba(154,176,198,0.06) 1px, transparent 1px, transparent 80px);
+    pointer-events:none;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--amber-500);
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(34px, 6vw, 56px);
+    line-height:1.03;
+    margin:0 0 14px 0;
+  }
+  .hero h1 span{color:var(--steel-300);}
+  .hero .role{
+    font-size:clamp(16px, 2.4vw, 20px);
+    color:var(--steel-300);
+    margin:0 0 30px 0;
+    max-width:620px;
+  }
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--paper-100);
+    padding-bottom:36px;
+    border-bottom:1px solid var(--line-dark);
+    margin-bottom:0;
+  }
+  .contact-row a{text-decoration:none;border-bottom:1px solid transparent;}
+  .contact-row a:hover{border-bottom-color:var(--amber-500);}
+
+  /* ledger strip of key figures */
+  .ledger-strip{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    position:relative;
+  }
+  .ledger-cell{
+    padding:26px 28px;
+    border-right:1px solid var(--line-dark);
+    border-top:1px solid var(--line-dark);
+  }
+  .ledger-cell:last-child{border-right:none;}
+  .ledger-cell .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:clamp(20px,3vw,28px);
+    color:var(--amber-500);
+    display:block;
+  }
+  .ledger-cell .cap{
+    font-size:12px;
+    color:var(--steel-300);
+    margin-top:4px;
+  }
+  @media (max-width:720px){
+    .ledger-strip{grid-template-columns:repeat(2,1fr);}
+    .ledger-cell:nth-child(2n){border-right:none;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:28px;
+    border-bottom:2px solid var(--ink-900);
+    padding-bottom:10px;
+  }
+  .section-head .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--amber-600);
+  }
+  .section-head h2{
+    font-size:24px;
+    margin:0;
+  }
+
+  /* ---------- SUMMARY ---------- */
+  .summary p{
+    font-size:17px;
+    color:var(--ink-600);
+    max-width:700px;
+  }
+
+  /* ---------- NEXUS 365 FEATURE ---------- */
+  .nexus{
+    background:var(--navy-900);
+    color:var(--paper-50);
+    border-radius:2px;
+    padding:36px 34px;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:32px;
+  }
+  @media (max-width:720px){ .nexus{grid-template-columns:1fr;} }
+  .nexus h3{
+    font-size:22px;
+    margin:0 0 6px 0;
+    color:var(--paper-50);
+  }
+  .nexus .badge{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--amber-500);
+    border:1px solid var(--amber-500);
+    padding:3px 8px;
+    border-radius:2px;
+    margin-bottom:14px;
+  }
+  .nexus p{color:var(--steel-300); font-size:15px;}
+  .nexus-specs{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    border-top:1px solid var(--line-dark);
+    padding-top:14px;
+  }
+  .nexus-specs div{
+    display:flex;
+    justify-content:space-between;
+    padding:7px 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    color:var(--paper-100);
+  }
+  .nexus-specs span:first-child{color:var(--steel-300);}
+
+  /* ---------- COMPETENCIES ---------- */
+  .comp-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media (max-width:600px){ .comp-grid{grid-template-columns:1fr;} }
+  .comp-cell{
+    background:var(--paper-50);
+    padding:16px 18px;
+    font-size:14px;
+  }
+  .comp-cell strong{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--amber-600);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-bottom:6px;
+  }
+
+  /* ---------- EXPERIENCE LEDGER ---------- */
+  .role-row{
+    border-top:1px solid var(--line);
+  }
+  .role-row:last-child{border-bottom:1px solid var(--line);}
+  .role-summary{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    padding:20px 4px;
+    cursor:pointer;
+    list-style:none;
+  }
+  .role-summary::-webkit-details-marker{display:none;}
+  .role-left h3{
+    font-size:17px;
+    margin:0 0 4px 0;
+  }
+  .role-left .co{
+    font-size:14px;
+    color:var(--ink-600);
+  }
+  .role-right{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-600);
+    text-align:right;
+    white-space:nowrap;
+    padding-top:2px;
+  }
+  .role-right .yrs{
+    display:block;
+    color:var(--amber-600);
+    font-size:13px;
+    margin-bottom:3px;
+  }
+  details[open] .chev{transform:rotate(90deg);}
+  .chev{
+    display:inline-block;
+    transition:transform 0.2s ease;
+    color:var(--steel-500);
+    margin-left:8px;
+  }
+  .role-body{
+    padding:0 4px 22px 4px;
+    color:var(--ink-600);
+    font-size:14.5px;
+  }
+  .role-body ul{margin:10px 0 0 0; padding-left:18px;}
+  .role-body li{margin-bottom:8px;}
+  .role-body .blurb{
+    font-style:italic;
+    color:var(--steel-500);
+    margin:0 0 10px 0;
+    font-size:13.5px;
+  }
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-track{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .cert-item{
+    display:grid;
+    grid-template-columns:110px 1fr 130px;
+    gap:16px;
+    align-items:center;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+  }
+  .cert-item:last-child{border-bottom:1px solid var(--line);}
+  @media (max-width:600px){
+    .cert-item{grid-template-columns:90px 1fr; }
+    .cert-item .status{grid-column:1/-1; text-align:left; margin-top:4px;}
+  }
+  .cert-item .code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--amber-600);
+  }
+  .cert-item .name{font-size:14.5px;}
+  .cert-item .name .sub{display:block; font-size:12.5px; color:var(--ink-600);}
+  .status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    text-align:right;
+    letter-spacing:0.04em;
+  }
+  .status.in-progress{color:var(--amber-600);}
+  .status.planned{color:var(--steel-500);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--navy-950);
+    color:var(--steel-300);
+    padding:40px 0;
+    font-size:13px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  footer a{text-decoration:none;color:var(--paper-100);}
+  footer a:hover{color:var(--amber-500);}
+
+  ::selection{background:var(--amber-500); color:var(--navy-950);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Technology Executive — ERP · Cloud · Applied AI</div>
+    <h1>Michael <span>Linek</span></h1>
+    <p class="role">Transformation leader turning complex, multi-ERP enterprises into governed, AI-enabled platforms — 25+ years driving IT modernization, systems integration, and P&amp;L-scale delivery.</p>
+    <div class="contact-row">
+      <a href="tel:3307349339">330.734.9339</a>
+      <a href="mailto:michael.linek28@gmail.com">michael.linek28@gmail.com</a>
+      <a href="https://www.linkedin.com/in/michaellinek/" target="_blank" rel="noopener">linkedin.com/in/michaellinek</a>
+      <span>Cleveland, OH</span>
+    </div>
+  </div>
+  <div class="ledger-strip wrap" style="padding-left:0;padding-right:0;">
+    <div class="ledger-cell"><span class="num">25+</span><span class="cap">Years in IT leadership</span></div>
+    <div class="ledger-cell"><span class="num">$30M</span><span class="cap">Annual CapEx managed</span></div>
+    <div class="ledger-cell"><span class="num">70</span><span class="cap">Person teams led</span></div>
+    <div class="ledger-cell"><span class="num">120</span><span class="cap">Countries served</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="summary">
+    <div class="section-head"><span class="tag">01</span><h2>Summary</h2></div>
+    <p>Technology executive and product leader with 25+ years driving enterprise modernization, from Fortune 500 IT organizations to global ERP implementations. Currently leading creation of Nexus 365® — a multi-tenant, Azure-hosted SaaS platform that automates ERP configuration management and compliance with an embedded AI assistant — owning product strategy, delivery, architecture, and QA across a distributed global team. Combines P&amp;L-level leadership ($30M CapEx, 70-person organizations) with deep enterprise systems expertise spanning ERP platforms (Dynamics 365, SAP, PeopleSoft), cloud infrastructure (Azure, AWS), and applied AI across the development lifecycle.</p>
+  </section>
+
+  <section id="nexus-section">
+    <div class="section-head"><span class="tag">02</span><h2>Featured IP — Nexus 365®</h2></div>
+    <div class="nexus">
+      <div>
+        <span class="badge">U.S. COPYRIGHT · REGISTERED TRADEMARK</span>
+        <h3>Nexus 365®</h3>
+        <p>Conceived and built end-to-end: a multi-tenant, Azure-hosted SaaS platform that automates ERP configuration management, detects misconfigurations before they cause failures, and keeps the D365 lifecycle compliant. An embedded AI assistant answers natural-language configuration questions, cutting reliance on documentation and support channels.</p>
+        <p>Taken from concept to a commercial, revenue-generating platform — with AI adoption driven across the delivery lifecycle itself, accelerating requirements analysis by 15%.</p>
+      </div>
+      <div class="nexus-specs">
+        <div><span>Hosting</span><span>Azure, multi-tenant SaaS</span></div>
+        <div><span>Team</span><span>15 engineers/QA, 4 countries</span></div>
+        <div><span>Scale</span><span>1,600 configuration objects monitored</span></div>
+        <div><span>Cadence</span><span>Quarterly releases</span></div>
+        <div><span>Protection</span><span>Copyright + trademark, registered</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="tag">03</span><h2>Core Competencies</h2></div>
+    <div class="comp-grid">
+      <div class="comp-cell"><strong>Leadership</strong>Global Business &amp; Technology Leadership, Strategic Vision / Execution, Team Creation / Transformation, Business Relationship Management</div>
+      <div class="comp-cell"><strong>Platforms</strong>IT Modernization / Transformation, Cloud / Digital Transformation, Systems Integration, AI Strategy and Enablement</div>
+      <div class="comp-cell"><strong>Operations</strong>P&amp;L Management, Governance and Project Management, Package Implementations</div>
+      <div class="comp-cell"><strong>Delivery</strong>Application Development, Vendor Relations / Negotiations, Training / Mentoring</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="tag">04</span><h2>Experience</h2></div>
+
+    <div class="role-row">
+      <details open>
+        <summary class="role-summary">
+          <div class="role-left">
+            <h3>Partner, Technology and Development <span class="chev">›</span></h3>
+            <div class="co">Simplified Global — Cleveland, OH</div>
+          </div>
+          <div class="role-right"><span class="yrs">2020 — Present</span>Consulting + SaaS product creation</div>
+        </summary>
+        <div class="role-body">
+          <p class="blurb">Consultancy providing global digital transformation services and enterprise software products.</p>
+
+          <p style="margin:18px 0 4px 0;"><strong>Nexus 365® — SaaS Product Creation</strong> <span class="mono" style="font-size:12.5px;color:var(--ink-600);">· 10/2021 — Present</span></p>
+          <ul>
+            <li>Conceived and delivered a multi-tenant, Azure-hosted SaaS platform that automates ERP configuration management, detects misconfigurations before failure, and ensures compliance across the D365 lifecycle.</li>
+            <li>Built and lead a distributed offshore product team of 15 engineers and QA specialists across four countries, delivering on a quarterly release cadence.</li>
+            <li>Architected the platform to support and monitor 1,600 configuration objects.</li>
+            <li>Embedded an AI assistant enabling natural-language questions about D365 functionality and configuration, reducing reliance on documentation and support channels.</li>
+            <li>Drove AI adoption across the delivery lifecycle — architecture, requirements, development, QA — accelerating requirements analysis by 15%.</li>
+            <li>Secured U.S. copyright registration and registered trademark status for the platform.</li>
+          </ul>
+
+          <p style="margin:18px 0 4px 0;"><strong>Dole Food Company — ERP Modernization</strong> <span class="mono" style="font-size:12.5px;color:var(--ink-600);">· 4/2020 — 2/2022</span></p>
+          <p class="blurb" style="margin-top:0;">$4.4B global producer of fresh fruit and vegetables — 36,000 employees, 300+ products in 90 countries.</p>
+          <ul>
+            <li>Provided technical, development, and quality services for a Dynamics 365 Finance &amp; Operations ERP implementation.</li>
+            <li>Managed custom-report and entity customization work to stand up a data warehouse serving Costa Rican and U.S. finance, accounting, procurement, sales, and operations teams.</li>
+            <li>Led remote technical teams across Colombia, Mexico, and the U.S. to sustain D365 releases and functionality.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="role-row">
+      <details>
+        <summary class="role-summary">
+          <div class="role-left">
+            <h3>Vice President, Corporate Systems and Development <span class="chev">›</span></h3>
+            <div class="co">TravelCenters of America, Inc. — Westlake, OH</div>
+          </div>
+          <div class="role-right"><span class="yrs">2015 — 2020</span>$14M budget · 70-person team</div>
+        </summary>
+        <div class="role-body">
+          <p class="blurb">$6.1B Fortune 500 operator of 250 travel center, convenience store, and restaurant locations across the U.S. and Canada.</p>
+          <ul>
+            <li>Championed a consumer loyalty system across retail and restaurant lines in eight months, increasing sales by 10%.</li>
+            <li>Led AWS-hosted digital transformation partnerships that grew Truck Service revenue 30% per client onboarded.</li>
+            <li>Reorganized Corporate Systems, improving delivery velocity in Truck Service by over 300%.</li>
+            <li>Implemented Salesforce clouds unifying Fleet Sales and Marketing customer data.</li>
+            <li>Stabilized a troubled POS system across 240 locations ($5B revenue) by consolidating seven code variants into one.</li>
+            <li>Managed upgrades across SAP, PeopleSoft, Cognos, and SAP Business Warehouse without business disruption.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="role-row">
+      <details>
+        <summary class="role-summary">
+          <div class="role-left">
+            <h3>Senior Director, Development and Operations <span class="chev">›</span></h3>
+            <div class="co">Snap-on Business Solutions, Inc. — Richfield, OH</div>
+          </div>
+          <div class="role-right"><span class="yrs">2007 — 2015</span>$5M budget · 25-person team</div>
+        </summary>
+        <div class="role-body">
+          <p class="blurb">$300M provider of parts and service solutions for OEMs and dealer networks.</p>
+          <ul>
+            <li>Delivered the GM electronic parts catalog — 150M VINs, 60k users, 120 countries, 22 languages — securing a $60M contract extension.</li>
+            <li>Drove customer satisfaction index up four spots to #2 in the industry.</li>
+            <li>Introduced agile practices, cutting time to market by 30%.</li>
+            <li>Authored ISO certification policies and procedures.</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+
+    <div class="role-row">
+      <details>
+        <summary class="role-summary">
+          <div class="role-left">
+            <h3>Earlier Career <span class="chev">›</span></h3>
+            <div class="co">KPMG Consulting · National City Corporation · Fidelity National Financial</div>
+          </div>
+          <div class="role-right"><span class="yrs">1997 — 2007</span>$10M+ system implementations</div>
+        </summary>
+        <div class="role-body">
+          <p>IT management and consulting roles delivering $10M+ system implementations for financial services clients, spanning network security, disaster recovery planning, SDLC standards, and large-scale legacy modernization.</p>
+        </div>
+      </details>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="section-head"><span class="tag">05</span><h2>AI Certification Roadmap</h2></div>
+    <div class="cert-track">
+      <div class="cert-item">
+        <span class="code">AI-900</span>
+        <span class="name">Azure AI Fundamentals<span class="sub">Microsoft</span></span>
+        <span class="status in-progress">IN PROGRESS</span>
+      </div>
+      <div class="cert-item">
+        <span class="code">MB-731</span>
+        <span class="name">AI Transformation Leader<span class="sub">Microsoft</span></span>
+        <span class="status in-progress">IN PROGRESS</span>
+      </div>
+      <div class="cert-item">
+        <span class="code">NCA-GENL</span>
+        <span class="name">Generative AI &amp; LLMs<span class="sub">NVIDIA Deep Learning Institute</span></span>
+        <span class="status planned">PLANNED</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="tag">06</span><h2>Professional Development</h2></div>
+    <div class="cert-track">
+      <div class="cert-item" style="grid-template-columns:1fr 130px;">
+        <span class="name">Gartner-Led Strategic Planning Workshops</span>
+        <span class="status" style="color:var(--ink-600);">2019</span>
+      </div>
+      <div class="cert-item" style="grid-template-columns:1fr 130px;">
+        <span class="name">Teaming Leadership Training Workshops</span>
+        <span class="status" style="color:var(--ink-600);">2018</span>
+      </div>
+      <div class="cert-item" style="grid-template-columns:1fr 130px;">
+        <span class="name">Leadership Through Emotional Intelligence</span>
+        <span class="status" style="color:var(--ink-600);">2016</span>
+      </div>
+      <div class="cert-item" style="grid-template-columns:1fr 130px;">
+        <span class="name">Leadership Development Program</span>
+        <span class="status" style="color:var(--ink-600);">2013</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Michael Linek — Technology Transformation Executive</span>
+    <span><a href="mailto:michael.linek28@gmail.com">Get in touch</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
